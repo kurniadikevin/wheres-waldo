@@ -20,6 +20,7 @@ code {
 
   .App{
     display: flex;
+    flex-direction: column;
     box-sizing: border-box;
     margin-right: 25px;
     margin-bottom: 25px;
@@ -31,18 +32,25 @@ code {
   .App>div{
     border: 1px solid black;
   }
+
+  .topbar{
+    height: 75px;
+  }
+   
+    .mainbar{
+      display: flex;
+    }
+
+       
     .sidebar{
       width: 200px;
+      padding-top: 20px;
     }
-
-    .mainbar{
-
+    
+    .img-cont{
+      border: 1px solid red;
     }
-
-    .topbar{
-      height: 75px;
-    }
-      img{
+      .main-img{
         width: 100%;
         height: auto;
       }
