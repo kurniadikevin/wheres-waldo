@@ -54,12 +54,12 @@ code {
     }
  
     .sidebar{
-      width: 80px;
+      width: 60px;
     }
 
     .sidebar>img{
       padding-top: 20px;
-      padding-left: 10px;
+     
     }
       .display-char1, .display-char2, .display-char3{
         display: none;
@@ -100,6 +100,7 @@ code {
           right: 983px;
 
         }
+
           .dropdown-cont1, .dropdown-cont2, .dropdown-cont3{
             flex-direction: column;
             background-color: beige;
@@ -112,7 +113,15 @@ code {
            border: 1px solid black;
            font-size: 10pt;
           }
+
+          .dropdown-cont0{
+            background-color: beige;
+            width: 60px;
+            height: auto;
+            display: none;
+          }
        
 .display-char{
   display: none;
 }
+

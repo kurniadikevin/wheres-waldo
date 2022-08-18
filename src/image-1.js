@@ -24,7 +24,20 @@ const removeDropdown = (num) => {
     dropDown.style.display='none';
 }
 
-// make click on every other area on image display drop down too!! 
+// get cursor position
+const getCursorPositionDropDown= (event)=> {
+    var xCursorPosition = event.clientX;
+    var yCursorPosition = event.clientY;
+    console.log(`x position ${xCursorPosition}`)
+    console.log(`y position ${yCursorPosition}`)
+    const dropDown = document.querySelector('.dropdown-cont0');
+    dropDown.setAttribute("style", `display: block; position: fixed ; top: ${yCursorPosition}px; left: ${xCursorPosition}px;`)
+  }
+const removeGetCursor = ()=>{
+    const dropDown = document.querySelector('.dropdown-cont0');
+    dropDown.style.display='none';
+}
+
 
     return(
     <div  className="main-bar">
@@ -46,7 +59,14 @@ const removeDropdown = (num) => {
         <div>
         <div className="img-cont"> 
             <img src={require('./assets/waldo-space.jpg')} alt='waldo-space' 
-            height={933} width={1400} className='main-img'/>
+                height={933} width={1400} className='main-img'
+                onClick={(ev)=>getCursorPositionDropDown(ev)} onMouseMove={removeGetCursor}/>
+            <div className='dropdown-cont0'>
+                    <div >Waldo</div>
+                    <div>Odlaw</div>
+                    <div>Wenda</div>
+                </div>
+
             <div id='spot-waldo' onClick={()=> displayDropdown(1)} onMouseLeave={()=> removeDropdown(1)}>
                 <div className='dropdown-cont1'>
                     <div >Waldo</div>
