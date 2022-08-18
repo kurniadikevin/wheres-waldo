@@ -33,7 +33,7 @@ code {
     border: 1px solid black;
   }
 
-  .topbar{
+  .top-bar{
     height: 75px;
   }
 
@@ -49,7 +49,7 @@ code {
 
 
   /* IMAGE JS */
-      .mainbar{
+      .main-bar{
       display: flex;
     }
  
@@ -61,6 +61,9 @@ code {
       padding-top: 20px;
       padding-left: 10px;
     }
+      .display-char1, .display-char2, .display-char3{
+        display: none;
+      }
       
     .img-cont{
       border: 1px solid blue;
@@ -76,8 +79,7 @@ code {
       }
 
       #spot-waldo, #spot-odlaw, #spot-wenda{
-        border: 2px solid red;
-        background-color: greenyellow;
+        background-color: cyan;
         z-index: 1;
         width: 10px;
         height: 20px;
@@ -96,6 +98,21 @@ code {
         #spot-wenda{
           top: 467px;
           right: 983px;
-        }
 
+        }
+          .dropdown-cont1, .dropdown-cont2, .dropdown-cont3{
+            flex-direction: column;
+            background-color: beige;
+            width: 60px;
+            height: auto;
+            display: none;
+          }
+          .dropdown-cont1>div, .dropdown-cont2>div, .dropdown-cont3>div{
+           
+           border: 1px solid black;
+           font-size: 10pt;
+          }
        
+.display-char{
+  display: none;
+}
