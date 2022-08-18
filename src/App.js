@@ -1,10 +1,13 @@
 import Image1 from "./image-1";
+import Dashboard from "./dashboard";
 
 function App() {
   return (
     <div className="App">
 
-      <div className="topbar">Where is waldo??</div>
+      <div className="topbar">
+        <Dashboard />
+      </div>
 
       <div className="main">
          

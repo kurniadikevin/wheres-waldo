@@ -36,21 +36,66 @@ code {
   .topbar{
     height: 75px;
   }
-   
-    .mainbar{
-      display: flex;
+
+  /* DASHBOARD JS */
+
+  .dashboard{
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+  }
+    .dashboard>div{
+      border: 1px solid red;
     }
 
-       
-    .sidebar{
-      width: 200px;
-      padding-top: 20px;
+
+  /* IMAGE JS */
+      .mainbar{
+      display: flex;
     }
-    
+ 
+    .sidebar{
+      width: 80px;
+    }
+
+    .sidebar>img{
+      padding-top: 20px;
+      padding-left: 10px;
+    }
+      
     .img-cont{
-      border: 1px solid red;
+      border: 1px solid blue;
+      position: relative;
+      height: 933px;
+      width: 1400px;
+      
     }
       .main-img{
         width: 100%;
-        height: auto;
+        height: auto; 
+        
       }
+
+      #spot-waldo, #spot-odlaw, #spot-wenda{
+        border: 2px solid red;
+        background-color: greenyellow;
+        z-index: 1;
+        width: 10px;
+        height: 20px;
+        position: absolute;
+      }
+        #spot-waldo{
+          top: 565px;
+          right: 830px;
+        }
+
+        #spot-odlaw{
+          bottom: 280px;
+          left: 92px;
+        }
+
+        #spot-wenda{
+          top: 467px;
+          right: 983px;
+        }
+
+       
