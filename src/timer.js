@@ -9,11 +9,14 @@ const Timer =()=>{
         var buttonStop = document.getElementById('button-stop');
         var buttonReset = document.getElementById('button-reset');
         var Interval ;
+
+        clearInterval(Interval);
+           Interval = setInterval(startTimer,1000);
       
         buttonStart.onclick = function() {
-          
+
           clearInterval(Interval);
-           Interval = setInterval(startTimer, 10);
+           Interval = setInterval(startTimer, 1000);
         }
         
           buttonStop.onclick = function() {
@@ -43,7 +46,7 @@ const Timer =()=>{
             
           } 
           
-          if (tens > 99) {
+          if (tens > 59) {
             seconds++;
             appendSeconds.innerHTML = "0" + seconds;
             tens = 0;
@@ -56,17 +59,14 @@ const Timer =()=>{
         
         }
         
-      
       }
    
 
     return(
         <div class="timer-wrapper">
-            <div>Time</div>
+            <div>Time:</div>
             <p><span id="seconds">00</span>:<span id="tens">00</span></p>
-            <button id="button-start">Start</button>
-            <button id="button-stop">Stop</button>
-            <button id="button-reset">Reset</button>
+            
     </div> 
 
     )

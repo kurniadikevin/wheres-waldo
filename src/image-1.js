@@ -4,11 +4,15 @@ const Image1 = () => {
 
 const [count,setCount] = useState(3); 
 
+// make timer stop when count = 0 and resulting time
+const minute = document.querySelector('#seconds');
+const second = document.querySelector('#tens');
+
 // test conditional
 if( count === 0){
     alert('game done!')
+    alert(`your time is ${minute.textContent} : ${second.textContent}`)
 }
-// make timer stop when count = 0 and resulting time
 
 
 // sidebar desc
@@ -67,7 +71,7 @@ const removeChar = (num)=> {
              onMouseOver={()=>displayDesc(2)} onMouseLeave={()=>removeDesc(2)}/>
               <p className='display-char2'>Odwal</p>
 
-            <img src={require('./assets/wenda.png')}  alt='wenda' height={110} width={50} className='side-img' id='img3'
+            <img src={require('./assets/wenda.png')}  alt='wenda' height={100} width={40} className='side-img' id='img3'
              onMouseOver={()=>displayDesc(3)} onMouseLeave={()=>removeDesc(3)}/>
              <p className='display-char3'>Wenda</p>
             </div>
