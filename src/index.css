@@ -77,6 +77,7 @@ code {
   /* IMAGE JS */
       .main-bar{
       display: flex;
+      
     }
  
     .sidebar{
@@ -96,6 +97,7 @@ code {
       position: relative;
       height: 923px;
       width: 1400px;
+      display: none;
       
     }
       .main-img{
@@ -169,3 +171,7 @@ code {
   display: none;
 }
 
+/* TIMER */
+.timer-wrapper{
+ 
+}

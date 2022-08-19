@@ -10,13 +10,16 @@ const Timer =()=>{
         var buttonReset = document.getElementById('button-reset');
         var Interval ;
 
-        clearInterval(Interval);
-           Interval = setInterval(startTimer,1000);
+       // clearInterval(Interval);
+         //  Interval = setInterval(startTimer,1000);
       
         buttonStart.onclick = function() {
-
           clearInterval(Interval);
            Interval = setInterval(startTimer, 1000);
+           //game start
+           const imageCont = document.querySelector('.img-cont');
+           imageCont.style.display = 'block';
+           alert('game on');
         }
         
           buttonStop.onclick = function() {
@@ -66,7 +69,7 @@ const Timer =()=>{
         <div class="timer-wrapper">
             <div>Time:</div>
             <p><span id="seconds">00</span>:<span id="tens">00</span></p>
-            
+            <button id="button-start">Start</button>
     </div> 
 
     )

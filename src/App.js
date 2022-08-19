@@ -2,6 +2,8 @@ import Image1 from "./image-1";
 import Dashboard from "./dashboard";
 
 function App() {
+
+
   return (
     <div className="App">
 
@@ -12,7 +14,7 @@ function App() {
       <div className="main">
          
           
-          < Image1/>
+          < Image1 />
          
       </div>
 

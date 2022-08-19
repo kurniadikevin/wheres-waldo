@@ -1,66 +1,78 @@
 import { useState } from 'react';
 
+
+
 const Image1 = () => {
 
-const [count,setCount] = useState(3); 
+    const [count,setCount] = useState(3); 
 
-// make timer stop when count = 0 and resulting time
-const minute = document.querySelector('#seconds');
-const second = document.querySelector('#tens');
+    // make timer stop when count = 0 and resulting time
+    const minute = document.querySelector('#seconds');
+    const second = document.querySelector('#tens');
 
-// test conditional
-if( count === 0){
-    alert('game done!')
-    alert(`your time is ${minute.textContent} : ${second.textContent}`)
-}
+    // test conditional
+    if( count === 0){
+        alert('game done!')
+        alert(`your time is ${minute.textContent} : ${second.textContent}`)
+        const imageCont = document.querySelector('.img-cont');
+        imageCont.style.display = 'none';
+        const timer =document.querySelector('.timer-wrapper');
+        timer.style.display='none';
+        const resultTime = document.createElement('div');
+        resultTime.textContent=`your time is ${minute.textContent} : ${second.textContent}`;
+        const mainPage= document.querySelector('.main');
+        mainPage.appendChild(resultTime);
+    }
 
 
-// sidebar desc
-const displayDesc = (num) => {
-    const altText = document.querySelector(`.display-char${num}`);
-    altText.style.display='inline';
-}
+    // sidebar desc
+    const displayDesc = (num) => {
+        const altText = document.querySelector(`.display-char${num}`);
+        altText.style.display='inline';
+    }
 
-const removeDesc = (num) =>{
-    const altText = document.querySelector(`.display-char${num}`);
-    altText.style.display='none';
-}
-// spotted dropdown
-const displayDropdown = (num)=> {
-    const dropDown = document.querySelector(`.dropdown-cont${num}`);
-    dropDown.style.display='block';
-}
-const removeDropdown = (num) => {
-    const dropDown = document.querySelector(`.dropdown-cont${num}`);
-    dropDown.style.display='none';
-}
+    const removeDesc = (num) =>{
+        const altText = document.querySelector(`.display-char${num}`);
+        altText.style.display='none';
+    }
+    // spotted dropdown
+    const displayDropdown = (num)=> {
+        const dropDown = document.querySelector(`.dropdown-cont${num}`);
+        dropDown.style.display='block';
+    }
+    const removeDropdown = (num) => {
+        const dropDown = document.querySelector(`.dropdown-cont${num}`);
+        dropDown.style.display='none';
+    }
 
-// get cursor position
-const getCursorPositionDropDown= (event)=> {
-    var xCursorPosition = event.clientX;
-    var yCursorPosition = event.clientY;
-    console.log(`x position ${xCursorPosition}`)
-    console.log(`y position ${yCursorPosition}`)
-    const dropDown = document.querySelector('.dropdown-cont0');
-    dropDown.setAttribute("style", `display: block; position: fixed ; top: ${yCursorPosition}px; left: ${xCursorPosition}px;`)
-  }
-const removeGetCursor = ()=>{
-    const dropDown = document.querySelector('.dropdown-cont0');
-    dropDown.style.display='none';
-}
-// spotted character
-const spotted = ()=>{
-    setCount((prev)=> prev - 1);
-    console.log(count);
-}
+    // get cursor position
+    const getCursorPositionDropDown= (event)=> {
+        var xCursorPosition = event.clientX;
+        var yCursorPosition = event.clientY;
+        console.log(`x position ${xCursorPosition}`)
+        console.log(`y position ${yCursorPosition}`)
+        const dropDown = document.querySelector('.dropdown-cont0');
+        dropDown.setAttribute("style", `display: block; position: fixed ; top: ${yCursorPosition}px; left: ${xCursorPosition}px;`)
+    }
+    const removeGetCursor = ()=>{
+        const dropDown = document.querySelector('.dropdown-cont0');
+        dropDown.style.display='none';
+    }
+    // spotted character
+    const spotted = ()=>{
+        setCount((prev)=> prev - 1);
+        console.log(count);
+    }
 
-const removeChar = (num)=> {
-    const sideChar = document.querySelector(`#img${num}`);
-    sideChar.style.display='none';
-    alert('remove!!')
-}
+    const removeChar = (num)=> {
+        const sideChar = document.querySelector(`#img${num}`);
+        sideChar.style.display='none';
+        alert('remove!!');
+    }
+
+    
     return(
-    <div  className="main-bar">
+    <div  className="main-bar" >
 
         <div className="sidebar">
             <img src={require('./assets/waldo.png')}  alt='waldo' height={50} width={55} className='side-img' id='img1'
