@@ -1,29 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 
 const Image1 = () => {
 
     const [count,setCount] = useState(3); 
-
-    // make timer stop when count = 0 and resulting time
-    const minute = document.querySelector('#seconds');
-    const second = document.querySelector('#tens');
-
-    // test conditional
-    if( count === 0){
-        alert('game done!')
-        alert(`your time is ${minute.textContent} : ${second.textContent}`)
-        const imageCont = document.querySelector('.img-cont');
-        imageCont.style.display = 'none';
-        const timer =document.querySelector('.timer-wrapper');
-        timer.style.display='none';
-        const resultTime = document.createElement('div');
-        resultTime.textContent=`your time is ${minute.textContent} : ${second.textContent}`;
-        const mainPage= document.querySelector('.main');
-        mainPage.appendChild(resultTime);
-    }
-
 
     // sidebar desc
     const displayDesc = (num) => {
@@ -67,8 +48,35 @@ const Image1 = () => {
     const removeChar = (num)=> {
         const sideChar = document.querySelector(`#img${num}`);
         sideChar.style.display='none';
-        alert('remove!!');
+        alert(`${count} object left!`);
     }
+
+        // END POINT
+        useEffect(()=>{
+        if( count === 0 ){
+            //alert('game done!')
+            setCount(3);
+             //alert(`your time is ${minute.textContent} : ${second.textContent}`)
+            const minute = document.querySelector('#minute');
+            const second = document.querySelector('#seconds');
+             const imageCont = document.querySelector('.img-cont');
+             imageCont.style.display = 'none';
+             const timer =document.querySelector('.timer-wrapper');
+             timer.style.display='none';
+             const resultTime = document.createElement('div');
+             resultTime.classList.add('result-time');
+             resultTime.textContent=`Time ${minute.textContent} : ${second.textContent}`;
+             resultTime.style.display='block';
+             const mainPage= document.querySelector('.main');
+             mainPage.appendChild(resultTime);
+             const buttonStart = document.getElementById('button-start');
+             buttonStart.style.display='block'
+             
+             //convert to second
+             const dataResultTime = (Number((minute.textContent)) * 60 ) + Number(second.textContent);
+             alert (dataResultTime);
+         }
+        })
 
     
     return(
