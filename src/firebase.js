@@ -1,6 +1,5 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getStorage } from "firebase/storage";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -8,6 +7,7 @@ import { getStorage } from "firebase/storage";
 const firebaseConfig = {
   apiKey: "AIzaSyD38f8Fb8-9fA7YomsZGsyOfp9lGsGRkDw",
   authDomain: "wheres-waldo-7b0b2.firebaseapp.com",
+  databaseURL: "https://wheres-waldo-7b0b2-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "wheres-waldo-7b0b2",
   storageBucket: "wheres-waldo-7b0b2.appspot.com",
   messagingSenderId: "296912988310",
@@ -17,6 +17,4 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Firebase storage reference
-export const storage = getStorage(app);
-//export default storage;
+export default app;

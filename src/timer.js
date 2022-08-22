@@ -1,32 +1,31 @@
 const Timer =()=>{
-    window.onload = function () {
+    window.onload = ()=>{
   
-        var seconds = 0; 
-        var tens = 0; 
+        let minute = 0; 
+        let seconds = 0; 
         //DOM
-        var appendTens = document.getElementById("seconds")
-        var appendSeconds = document.getElementById("minute")
-        var buttonStart = document.getElementById('button-start');
-        var buttonStop = document.getElementById('button-stop');
-        var buttonReset = document.getElementById('button-reset');
-        var timerWrapper = document.querySelector('.timer-wrapper');
-        var Interval ;
-      
+        let appendSeconds = document.querySelector(".seconds");
+        let appendMinute = document.querySelector(".minute");
+        let btnStart = document.querySelector('.button-start');
+        let timerWrapper = document.querySelector('.timer-wrapper');
+        let Interval ;
+    
         // ENTRY POINT
-        buttonStart.onclick = function() {
-          clearInterval(Interval);
+        
+       btnStart.onclick = function() {
+           clearInterval(Interval);
            Interval = setInterval(startTimer, 1000);
            const imageCont = document.querySelector('.img-cont');
            imageCont.style.display = 'block';
            alert('game on');
-           buttonStart.style.display='none';
+          btnStart.style.display='none';
            timerWrapper.style.display='block';
 
           //reset timer
-          tens = "00";
           seconds = "00";
-          appendTens.innerHTML = tens;
-            appendSeconds.innerHTML = seconds;
+          minute = "00";
+          appendSeconds.innerHTML = seconds;
+            appendMinute.innerHTML = minute;
 
           // display all side image again
           const img1= document.querySelector('#img1');
@@ -42,57 +41,59 @@ const Timer =()=>{
         }
         
 
-          buttonStop.onclick = function() {
-             clearInterval(Interval);
-        }
+        clearInterval(Interval);
+           Interval = setInterval(startTimer, 1000)
+     //     buttonStop.onclick = function() {
+       //      clearInterval(Interval);
+        //}
         
       
-        buttonReset.onclick = function() {
-           clearInterval(Interval);
+      /*  buttonReset.onclick = function() {
+         clearInterval(Interval);
           tens = "00";
             seconds = "00";
           appendTens.innerHTML = tens;
             appendSeconds.innerHTML = seconds;
         }
+*/
         
-         
         
         function startTimer () {
-          tens++; 
+          seconds++; 
           
-          if(tens <= 9){
-            appendTens.innerHTML = "0" + tens;
-          }
-          
-          if (tens > 9){
-            appendTens.innerHTML = tens;
-            
-          } 
-          
-          if (tens > 59) {
-            seconds++;
+          if(seconds <= 9){
             appendSeconds.innerHTML = "0" + seconds;
-            tens = 0;
-            appendTens.innerHTML = "0" + 0;
           }
           
           if (seconds > 9){
             appendSeconds.innerHTML = seconds;
+            
+          } 
+          
+          if (seconds > 59) {
+            minute++;
+            appendMinute.innerHTML = "0" + minute;
+            seconds = 0;
+            appendSeconds.innerHTML = "0" + 0;
+          }
+          
+          if (minute > 9){
+            appendMinute.innerHTML = minute;
           }
         
-        }
-        
-      }
+        }}
+      
+      
    
 
     return(
       <div>
         <div class="timer-wrapper">
             <div>Time:</div>
-              <p><span id="minute">00</span>:<span id="seconds">00</span></p>
+              <p><span className="minute">00</span>:<span className="seconds">00</span></p>
         </div>
             
-              <button id="button-start">Start Searching</button>
+              <button className="button-start" >Start Searching</button>
             
         </div>
     )

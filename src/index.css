@@ -108,7 +108,7 @@ code {
       }
 
       #spot-waldo, #spot-odlaw, #spot-wenda{
-        background-color: chartreuse; 
+       /* background-color: chartreuse; */
         z-index: 1;
         width: 10px;
         height: 20px;
@@ -176,7 +176,7 @@ code {
  
 }
 
-  #button-start{
+  .button-start{
     padding: 20px 30px;
     position: fixed;
     top: 15%;

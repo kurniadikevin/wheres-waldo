@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { getDatabase, ref, set } from "firebase/database";
+import app from './firebase.js';
 
 
 
@@ -30,8 +32,8 @@ const Image1 = () => {
     const getCursorPositionDropDown= (event)=> {
         var xCursorPosition = event.clientX;
         var yCursorPosition = event.clientY;
-        console.log(`x position ${xCursorPosition}`)
-        console.log(`y position ${yCursorPosition}`)
+        //console.log(`x position ${xCursorPosition}`)
+        //console.log(`y position ${yCursorPosition}`)
         const dropDown = document.querySelector('.dropdown-cont0');
         dropDown.setAttribute("style", `display: block; position: fixed ; top: ${yCursorPosition}px; left: ${xCursorPosition}px;`)
     }
@@ -42,14 +44,26 @@ const Image1 = () => {
     // spotted character
     const spotted = ()=>{
         setCount((prev)=> prev - 1);
-        console.log(count);
+        //console.log(count);
     }
 
     const removeChar = (num)=> {
         const sideChar = document.querySelector(`#img${num}`);
         sideChar.style.display='none';
-        alert(`${count} object left!`);
+        //alert(`${count} object left!`);
     }
+
+    //write use database real time -- FIREBASE
+    function writeUserData(time) {
+       const db = getDatabase();
+        set(ref(db, 'time/' + time), {
+           'timeProp' : time
+        
+         })
+    };
+    console.log(app);
+  
+    writeUserData(30);
 
         // END POINT
         useEffect(()=>{
@@ -57,27 +71,30 @@ const Image1 = () => {
             //alert('game done!')
             setCount(3);
              //alert(`your time is ${minute.textContent} : ${second.textContent}`)
-            const minute = document.querySelector('#minute');
-            const second = document.querySelector('#seconds');
+            const minute = document.querySelector('.minute');
+            const second = document.querySelector('.seconds');
              const imageCont = document.querySelector('.img-cont');
              imageCont.style.display = 'none';
+             const resultTime = document.createElement('div');
              const timer =document.querySelector('.timer-wrapper');
              timer.style.display='none';
-             const resultTime = document.createElement('div');
              resultTime.classList.add('result-time');
              resultTime.textContent=`Time ${minute.textContent} : ${second.textContent}`;
              resultTime.style.display='block';
              const mainPage= document.querySelector('.main');
              mainPage.appendChild(resultTime);
-             const buttonStart = document.getElementById('button-start');
+             const buttonStart = document.querySelector('.button-start');
              buttonStart.style.display='block'
              
              //convert to second
              const dataResultTime = (Number((minute.textContent)) * 60 ) + Number(second.textContent);
-             alert (dataResultTime);
+            // alert (dataResultTime);
+             //storage
+            writeUserData(dataResultTime);
          }
         })
 
+        
     
     return(
     <div  className="main-bar" >
