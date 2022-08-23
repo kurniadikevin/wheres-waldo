@@ -41,8 +41,8 @@ const Timer =()=>{
         }
         
 
-        clearInterval(Interval);
-           Interval = setInterval(startTimer, 1000)
+        //clearInterval(Interval);
+          // Interval = setInterval(startTimer, 1000)
      //     buttonStop.onclick = function() {
        //      clearInterval(Interval);
         //}

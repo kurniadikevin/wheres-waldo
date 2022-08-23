@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getDatabase, ref, set } from "firebase/database";
+import { getDatabase, ref, set,child,get } from "firebase/database";
 import app from './firebase.js';
 
 
@@ -53,17 +53,41 @@ const Image1 = () => {
         //alert(`${count} object left!`);
     }
 
-    //write use database real time -- FIREBASE
+    //write use database real time -- FIREBASE --
     function writeUserData(time) {
        const db = getDatabase();
-        set(ref(db, 'time/' + time), {
+        set(ref(db, 'time/'+ time), {
            'timeProp' : time
         
          })
     };
+
+    //read data -- FIREBASE--
+  const timeList = document.createElement('div');
+  // const mainPage= document.querySelector('.main');
+   
+const dbRef = ref(getDatabase());
+get(child(dbRef, `time/`)).then((snapshot) => {
+  if (snapshot.exists()) {
+    console.log(snapshot.val().user);
+    const data = JSON.stringify(snapshot.val());
+    console.log(data);
+   const item = (data).map((data)=>{
+    return `<li>${data.time}</li>`
+   })
+   timeList.innerHTML= item.join('');
+   
+  } else {
+    console.log("No data available");
+  }
+}).catch((error) => {
+  console.error(error);
+});
+
+
     console.log(app);
   
-    writeUserData(30);
+    //writeUserData(30);
 
         // END POINT
         useEffect(()=>{
@@ -79,10 +103,11 @@ const Image1 = () => {
              const timer =document.querySelector('.timer-wrapper');
              timer.style.display='none';
              resultTime.classList.add('result-time');
-             resultTime.textContent=`Time ${minute.textContent} : ${second.textContent}`;
+             resultTime.textContent=`Your Time ${minute.textContent} : ${second.textContent}`;
              resultTime.style.display='block';
              const mainPage= document.querySelector('.main');
              mainPage.appendChild(resultTime);
+             mainPage.appendChild(timeList);
              const buttonStart = document.querySelector('.button-start');
              buttonStart.style.display='block'
              
