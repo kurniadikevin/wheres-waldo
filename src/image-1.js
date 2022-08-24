@@ -56,10 +56,11 @@ const Image1 = () => {
     //write use database real time -- FIREBASE --
     function writeUserData(time) {
        const db = getDatabase();
-        set(ref(db, 'time/'+ time), {
-           'timeProp' : time
+        set(ref(db, 'time/play'), {
+           'time-history' : time
         
-         })
+         }
+         )
     };
 
     //read data -- FIREBASE--
@@ -67,15 +68,14 @@ const Image1 = () => {
   // const mainPage= document.querySelector('.main');
    
 const dbRef = ref(getDatabase());
-get(child(dbRef, `time/`)).then((snapshot) => {
+
+get(child(dbRef, `time/play`)).then((snapshot) => {
   if (snapshot.exists()) {
-    console.log(snapshot.val().user);
+    console.log(snapshot.val());
     const data = JSON.stringify(snapshot.val());
     console.log(data);
-   const item = (data).map((data)=>{
-    return `<li>${data.time}</li>`
-   })
-   timeList.innerHTML= item.join('');
+   
+   timeList.innerHTML= data;
    
   } else {
     console.log("No data available");
