@@ -6,6 +6,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
   color: white;
+  width: 100%;
+ padding-top: 10px;
 }
 
 code {
@@ -21,12 +23,7 @@ code {
   .App{
     display: flex;
     flex-direction: column;
-    box-sizing: border-box;
-    margin-right: 25px;
-    margin-bottom: 25px;
-    padding: 0;
-    
-    
+    width: 100%;   
   }
 
   .App>div{
@@ -35,7 +32,7 @@ code {
 
    /* DASHBOARD JS */
   .top-bar{
-    height: 75px;
+    height: 100px;
     
   }
     .head-title{
@@ -77,11 +74,14 @@ code {
   /* IMAGE JS */
       .main-bar{
       display: flex;
+      justify-content: center;
+      
       
     }
  
     .sidebar{
       width: 50px;
+      display: none;
     }
 
     .sidebar>img{
@@ -95,10 +95,11 @@ code {
     .img-cont{
       border: 1px solid white;
       position: relative;
-      height: 923px;
-      width: 1400px;
+      height: 666px;
+      width: 1000px;
       display: none;
       margin-bottom: 50px;
+      justify-content: center;
     }
       .main-img{
         width: 100%;
@@ -108,25 +109,25 @@ code {
       }
 
       #spot-waldo, #spot-odlaw, #spot-wenda{
-       /* background-color: chartreuse; */
+       
         z-index: 1;
         width: 10px;
         height: 20px;
         position: absolute;
       }
         #spot-waldo{
-          top: 565px;
-          right: 830px;
+          top: 410px;
+          right: 590px;
         }
 
         #spot-odlaw{
-          bottom: 280px;
-          left: 92px;
+          bottom: 190px;
+          left: 65px;
         }
 
         #spot-wenda{
-          top: 467px;
-          right: 983px;
+          top: 337px;
+          left: 290px;
 
         }
 
@@ -173,7 +174,7 @@ code {
 
 /* TIMER */
 .timer-wrapper{
- 
+  font-size: 15pt;
 }
 
   .button-start{
@@ -197,4 +198,13 @@ code {
 /*RESULT*/
 .result-time{
   margin-left: 25%;
+  display: none;
 }
+
+/* Sidebar new */
+.sidebar-new{
+  display: flex;
+  justify-content: flex-end;
+  gap: 50px;
+}
+

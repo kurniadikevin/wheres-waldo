@@ -10,11 +10,8 @@ function App() {
       <div className="top-bar">
         <Dashboard />
       </div>
-
       <div className="main">
-          
           < Image1 />
-         
       </div>
 
     </div>

@@ -8,16 +8,6 @@ const Image1 = () => {
 
     const [count,setCount] = useState(3); 
 
-    // sidebar desc
-    const displayDesc = (num) => {
-        const altText = document.querySelector(`.display-char${num}`);
-        altText.style.display='inline';
-    }
-
-    const removeDesc = (num) =>{
-        const altText = document.querySelector(`.display-char${num}`);
-        altText.style.display='none';
-    }
     // spotted dropdown
     const displayDropdown = (num)=> {
         const dropDown = document.querySelector(`.dropdown-cont${num}`);
@@ -92,9 +82,8 @@ get(child(dbRef, `time/play`)).then((snapshot) => {
         // END POINT
         useEffect(()=>{
         if( count === 0 ){
-            //alert('game done!')
+           
             setCount(3);
-             //alert(`your time is ${minute.textContent} : ${second.textContent}`)
             const minute = document.querySelector('.minute');
             const second = document.querySelector('.seconds');
              const imageCont = document.querySelector('.img-cont');
@@ -123,21 +112,6 @@ get(child(dbRef, `time/play`)).then((snapshot) => {
     
     return(
     <div  className="main-bar" >
-
-        <div className="sidebar">
-            <img src={require('./assets/waldo.png')}  alt='waldo' height={50} width={55} className='side-img' id='img1'
-                onMouseOver={()=> displayDesc(1)} onMouseLeave={()=>removeDesc(1)}/>
-            <p className='display-char1'>Waldo</p>
-
-            <img src={require('./assets/odlaw.jpg')}  alt='odwal' height={50} width={50} className='side-img' id='img2'
-             onMouseOver={()=>displayDesc(2)} onMouseLeave={()=>removeDesc(2)}/>
-              <p className='display-char2'>Odwal</p>
-
-            <img src={require('./assets/wenda.png')}  alt='wenda' height={100} width={40} className='side-img' id='img3'
-             onMouseOver={()=>displayDesc(3)} onMouseLeave={()=>removeDesc(3)}/>
-             <p className='display-char3'>Wenda</p>
-            </div>
-
         <div>
         <div className="img-cont"> 
             <img src={require('./assets/waldo-space.jpg')} alt='waldo-space' 

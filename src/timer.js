@@ -16,7 +16,7 @@ const Timer =()=>{
            clearInterval(Interval);
            Interval = setInterval(startTimer, 1000);
            const imageCont = document.querySelector('.img-cont');
-           imageCont.style.display = 'block';
+           imageCont.style.display = 'flex';
            alert('game on');
           btnStart.style.display='none';
            timerWrapper.style.display='block';
@@ -39,24 +39,6 @@ const Timer =()=>{
           const resultTime = document.querySelector('.result-time');
           resultTime.style.display='none';
         }
-        
-
-        //clearInterval(Interval);
-          // Interval = setInterval(startTimer, 1000)
-     //     buttonStop.onclick = function() {
-       //      clearInterval(Interval);
-        //}
-        
-      
-      /*  buttonReset.onclick = function() {
-         clearInterval(Interval);
-          tens = "00";
-            seconds = "00";
-          appendTens.innerHTML = tens;
-            appendSeconds.innerHTML = seconds;
-        }
-*/
-        
         
         function startTimer () {
           seconds++; 
