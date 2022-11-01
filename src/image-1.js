@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { getDatabase, ref, set,child,get } from "firebase/database";
-import app from './firebase.js';
+//import { getDatabase, ref, set,child,get } from "firebase/database";
+//import app from './firebase.js';
 
 
 
@@ -43,7 +43,7 @@ const Image1 = () => {
         //alert(`${count} object left!`);
     }
 
-    //write use database real time -- FIREBASE --
+ /*    //write use database real time -- FIREBASE --
     function writeUserData(time) {
        const db = getDatabase();
         set(ref(db, 'time/play'), {
@@ -51,13 +51,13 @@ const Image1 = () => {
         
          }
          )
-    };
+    }; */
 
     //read data -- FIREBASE--
   const timeList = document.createElement('div');
   // const mainPage= document.querySelector('.main');
    
-const dbRef = ref(getDatabase());
+/* const dbRef = ref(getDatabase());
 
 get(child(dbRef, `time/play`)).then((snapshot) => {
   if (snapshot.exists()) {
@@ -73,9 +73,10 @@ get(child(dbRef, `time/play`)).then((snapshot) => {
 }).catch((error) => {
   console.error(error);
 });
+ */
 
 
-    console.log(app);
+//    console.log(app);
   
     //writeUserData(30);
 
@@ -101,10 +102,10 @@ get(child(dbRef, `time/play`)).then((snapshot) => {
              buttonStart.style.display='block'
              
              //convert to second
-             const dataResultTime = (Number((minute.textContent)) * 60 ) + Number(second.textContent);
+          //   const dataResultTime = (Number((minute.textContent)) * 60 ) + Number(second.textContent);
             // alert (dataResultTime);
              //storage
-            writeUserData(dataResultTime);
+         //  writeUserData(dataResultTime);
          }
         })
 

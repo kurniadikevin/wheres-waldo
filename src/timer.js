@@ -17,7 +17,7 @@ const Timer =()=>{
            Interval = setInterval(startTimer, 1000);
            const imageCont = document.querySelector('.img-cont');
            imageCont.style.display = 'flex';
-           alert('game on');
+           //alert('game on');
           btnStart.style.display='none';
            timerWrapper.style.display='block';
 
