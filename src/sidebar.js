@@ -21,7 +21,7 @@ function Sidebar(){
             onMouseOver={()=> displayDesc(1)} onMouseLeave={()=>removeDesc(1)}/>
         <p className='display-char1'>Waldo</p>
 
-        <img src={require('./assets/odlaw.jpg')}  alt='odwal' height={50} width={50} className='side-img' id='img2'
+        <img src={require('./assets/odlaw-bb.png')}  alt='odwal' height={50} width={50} className='side-img' id='img2'
          onMouseOver={()=>displayDesc(2)} onMouseLeave={()=>removeDesc(2)}/>
           <p className='display-char2'>Odwal</p>
 

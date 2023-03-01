@@ -103,17 +103,16 @@ code {
     }
       .main-img{
         width: 100%;
-        height: auto; 
-        
-        
+        height: auto;         
       }
 
       #spot-waldo, #spot-odlaw, #spot-wenda{
-       
         z-index: 1;
         width: 10px;
         height: 20px;
         position: absolute;
+      
+        
       }
         #spot-waldo{
           top: 410px;
@@ -208,3 +207,16 @@ code {
   gap: 50px;
 }
 
+.display-char1{
+  position: absolute;
+  right: 300px;
+}
+
+ .display-char2{
+  position: absolute;
+  right: 200px;
+}
+.display-char3{
+  position: absolute;
+  right: 100px;
+}
